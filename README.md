@@ -36,7 +36,7 @@ git clone REPOSITORY_URL
 In den Projektordner wechseln:
 
 ```bash
-cd flashcards-pwa
+cd flashcards-app
 ```
 
 Dependencies installieren:
