@@ -11,7 +11,7 @@ Eine Progressive Web App zum Erstellen und Lernen digitaler Karteikarten.
 - Lernmodus mit zufälliger Reihenfolge
 - Fortschrittsspeicherung
 - Offline-Nutzung durch PWA
-
+lol
 ---
 
 ## Technologien
