@@ -21,7 +21,7 @@ Eine Progressive Web App zum Erstellen und Lernen digitaler Karteikarten.
 - React Router
 - IndexedDB
 - Dexie.js
-- PWA / Workbox
+- PWA / Service-Worker mit Workbox
 
 ---
 
@@ -36,7 +36,7 @@ git clone REPOSITORY_URL
 In den Projektordner wechseln:
 
 ```bash
-cd flashcards-app
+cd flashcard-app
 ```
 
 Dependencies installieren:

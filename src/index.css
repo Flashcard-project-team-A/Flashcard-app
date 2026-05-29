@@ -1,3 +1,7 @@
+
+
+
+
 :root {
   --text: #ffffff;
   --text-h: #ffffff;
@@ -7,7 +11,7 @@
     #270e56 10%,
     #270e56 100%
   );
-  --button:
+  --button: 
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
   --accent-bg: rgba(170, 59, 255, 0.1);
@@ -29,6 +33,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
 
   @media (max-width: 1024px) {
     font-size: 16px;
@@ -84,19 +93,12 @@
     filter: invert(1) brightness(2);
   }
 }*/
-.glass {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
+/*
 body {
   margin: 0;
 }
+
 
 #root {
   width: 1126px;
@@ -109,6 +111,8 @@ body {
   flex-direction: column;
   box-sizing: border-box;
 }
+
+
 
 h1,
 h2 {
@@ -153,3 +157,4 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+*/

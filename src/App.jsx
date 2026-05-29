@@ -1,5 +1,7 @@
 import Home from "./pages/Home";
+import Learning from "./pages/Learning.jsx";
 import './App.css'
+
 
 
 function App() {
@@ -7,9 +9,9 @@ function App() {
 
   return (
     
-     <Home/>
+     <Learning/>
     
-  )
+  );
 }
 
-export default App
+export default App;
