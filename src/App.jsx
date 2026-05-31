@@ -1,5 +1,4 @@
-import Home from "./pages/Home";
-import Learning from "./pages/Learning.jsx";
+import AppRoutes from './router/AppRoutes';
 import './App.css'
 
 
@@ -8,9 +7,7 @@ function App() {
  
 
   return (
-    
-     <Learning/>
-    
+    <AppRoutes />
   );
 }
 

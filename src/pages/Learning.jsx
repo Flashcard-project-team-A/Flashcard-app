@@ -21,7 +21,7 @@ export default function Learning(){
     return (
     <>
 {/*Name des aktuellen Lernsets*/}
-        <h2 style={{color:"white"}}>Name des Sets</h2> 
+        <h2 style={{color:"white",display:"flex",justifyContent:'center'}}>Demo Learnset</h2> 
 
 {/*Fortschrittsanzeige für das Lernset. Nicht auf die Karten selbst tun, sondern woanders auf die Seite*/}
         <Progressbar progress={progress}/>
