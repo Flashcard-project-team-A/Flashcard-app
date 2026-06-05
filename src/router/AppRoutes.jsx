@@ -7,7 +7,7 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/learning" element={<Learning />} />
+      <Route path="/learning/:id" element={<Learning/>} />
       <Route path="/CreateSet" element={<CreateSet/>}/>
     </Routes>
   );
