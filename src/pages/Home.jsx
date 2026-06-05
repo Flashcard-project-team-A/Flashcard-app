@@ -1,7 +1,7 @@
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import logo from "../../dist/assets/unhappy.png";
+import logo from "../assets/unhappy.png";
 
 function Home() {
   const content = false;
@@ -44,7 +44,7 @@ function Home() {
 
       )}
 
-      <button className="floating-btn glass">+</button>
+      <button className="floating-btn glass" onClick={() => navigate("/CreateSet")}>+</button>
       </div>
     </>
   );

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import React from 'react';
+//import React from 'react';
 
 //  IndexedDB Setup
 const DB_NAME = "LernsetsDB";
-
+const STORE_NAME = "lernsets";
 
 function openDB() {
     return new Promise((resolve, reject) => {
