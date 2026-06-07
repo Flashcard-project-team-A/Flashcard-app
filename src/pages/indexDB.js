@@ -24,6 +24,19 @@ function openDB() {
     });
 }
 
+export async function getAllLernsets() {
+    const db = await openDB();
+
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction("lernsets", "readonly");
+        const store = tx.objectStore("lernsets");
+        const request = store.getAll();
+
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+}
+
 export async function saveLernset(lernset) {
     const db = await openDB();
 
