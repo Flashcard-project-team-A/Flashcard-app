@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 
 import "../components/Temp.css";
 import {db} from "../db";
@@ -18,10 +18,13 @@ export default function Learning(){
     //Set laden
 //id aus URL holen (z.B. .../learning/1 -> id = 1)
     const {id} = useParams(); 
+    const navigate = useNavigate();
 
     const [progress, setProgress] = useState(0);
     const [currentSet, setCurrentSet] = useState(null);
     const [index, setIndex] = useState(0);
+    //Für das Popup-Fenster, am Anfang nicht sichtbar-> false
+    const [showPopup, setShowPopup] = useState(false);
 
 //Bei Änderung von id ausführen
     useEffect(()=> {
@@ -38,11 +41,12 @@ export default function Learning(){
         return <div>Lade Set...</div>;
     }
 
+    if (!currentSet.karten || currentSet.karten.length === 0) {
+        return <div style={{color: "white", textAlign: "center", marginTop: "50px"}}>Dieses Set hat noch keine karten</div>;
+    }
+
 //Klick auf Bestätigungsbutton soll Fortschrittsanzeige erhöhen
     
-
-    //Für das Popup-Fenster, am Anfang nicht sichtbar-> false
-    const [showPopup, setShowPopup] = useState(false);
 
     function handleClick(){
         if(index < currentSet.karten.length-1){
@@ -61,11 +65,27 @@ export default function Learning(){
         setShowPopup(false);
     }
 
-    function handleConfirmDelete() {
 
+
+// um einzelne Karten zu löschen, nciht das gesamte Set!
+    async function handleConfirmDelete() {
+        const copycurrentCards = [...currentSet.karten];
+        copycurrentCards.splice(index, 1);
+
+        const newcurrentSet= {
+            ...currentSet,
+            karten:copycurrentCards
+        };
+
+        await db.lernsets.put(newcurrentSet);
+        setCurrentSet(newcurrentSet);
         setShowPopup(false);
-    }
 
+        //falls man die letzte Karte gelöscht hat, index anpassen 
+        if (index >= copycurrentCards.length && index > 0) {
+            setIndex(index - 1);
+        }
+    }
 
     return (
     <>
@@ -78,14 +98,14 @@ export default function Learning(){
 {/*Name des aktuellen Lernsets*/}
         <h2 style={{color:"white",display:"flex",justifyContent:'center'}}>{currentSet.name}</h2> 
 
-    {/*Fortschrittsanzeige für das Lernset. Nicht auf die Karten selbst tun, sondern woanders auf die Seite*/}
-            <Progressbar progress={progress}/>
+{/*Fortschrittsanzeige für das Lernset. Nicht auf die Karten selbst tun, sondern woanders auf die Seite*/}
+        <Progressbar progress={progress}/>
 
-    {/*Frage und Antwort-Karte*/}
-            <div className = "cardsContainer">
-                <QuestionCard card={currentSet.karten[index]}/>
-                <AnswerCard card={currentSet.karten[index]}/>
-            </div>
+{/*Frage und Antwort-Karte*/}
+        <div className = "cardsContainer">
+            <QuestionCard card={currentSet.karten[index]}/>
+            <AnswerCard card={currentSet.karten[index]}/>
+        </div>
 
 {/*Buttons unten zum Nochmal lernen und bestätigen*/}
         <div className="buttons">
