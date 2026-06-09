@@ -1,6 +1,8 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import {useParams} from "react-router-dom";
 
 import "../components/Temp.css";
+import {db} from "../db";
 
 import LearnedBtn from "../components/LearnedBtn.jsx";
 import TryAgainBtn from "../components/TryAgainBtn.jsx";
@@ -11,32 +13,61 @@ import QuestionCard from "../components/QuestionCard.jsx";
 
 export default function Learning(){
 
-//Klick auf Bestätigungsbutton soll Fortschrittsanzeige erhöhen
+    console.log("DB:", db);
+    
+    //Set laden
+//id aus URL holen (z.B. .../learning/1 -> id = 1)
+    const {id} = useParams(); 
+
     const [progress, setProgress] = useState(0);
+    const [currentSet, setCurrentSet] = useState(null);
+    const [index, setIndex] = useState(0);
+
+//Bei Änderung von id ausführen
+    useEffect(()=> {
+        async function loadSet(){
+            const set = await db.lernsets.get(Number(id)) //lernsets mit passender id aus Datenbank in set speichern
+            setCurrentSet(set);
+        }
+
+        loadSet();
+
+    }, [id]);
+
+    if (!currentSet){
+        return <div>Lade Set...</div>;
+    }
+
+//Klick auf Bestätigungsbutton soll Fortschrittsanzeige erhöhen
+    
 
     function handleClick(){
+        if(index < currentSet.karten.length-1){
+            setIndex(prevIndex => prevIndex + 1);
+        }
         setProgress(progress +  1);
+        
     }
-    
+
     return (
-    <>
-{/*Name des aktuellen Lernsets*/}
-        <h2 style={{color:"white",display:"flex",justifyContent:'center'}}>Demo Learnset</h2> 
+        <>
+    {/*Name des aktuellen Lernsets*/}
+            <h2 style={{color:"white",display:"flex",justifyContent:'center'}}>{currentSet.name}</h2> 
 
-{/*Fortschrittsanzeige für das Lernset. Nicht auf die Karten selbst tun, sondern woanders auf die Seite*/}
-        <Progressbar progress={progress}/>
+    {/*Fortschrittsanzeige für das Lernset. Nicht auf die Karten selbst tun, sondern woanders auf die Seite*/}
+            <Progressbar progress={progress}/>
 
-{/*Frage und Antwort-Karte*/}
-        <div className = "cardsContainer">
-            <QuestionCard/>
-            <AnswerCard/>
-        </div>
+    {/*Frage und Antwort-Karte*/}
+            <div className = "cardsContainer">
+                <QuestionCard card={currentSet.karten[index]}/>
+                <AnswerCard card={currentSet.karten[index]}/>
+            </div>
 
-{/*Buttons unten zum Nochmal lernen und bestätigen*/}
-        <div className="buttons">
-            <LearnedBtn onClick={handleClick}/>
-            <TryAgainBtn/>
-        </div>
-    </>
+    {/*Buttons unten zum Nochmal lernen und bestätigen*/}
+            <div className="buttons">
+                <LearnedBtn onClick={handleClick}/>
+                <TryAgainBtn/>
+            </div>
+        </>
     );
 }

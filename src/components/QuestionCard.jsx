@@ -1,9 +1,9 @@
 import './Temp.css'
 
-export default function QuestionCard(){
+export default function QuestionCard({card}){
 return (
       <div className="card">
-            Was ist 1 + 1 ?
-        </div>
+            <p>{card?.frage}</p>
+      </div>
 );
 }

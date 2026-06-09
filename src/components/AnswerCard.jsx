@@ -1,9 +1,9 @@
 import './Temp.css'
 
-export default function AnswerCard(){
+export default function AnswerCard({card}){
     return(
         <div className="card">
-            Answer is 2 !
+            <p>{card?.antwort}</p>
         </div>
     );
 }
