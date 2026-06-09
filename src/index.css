@@ -1,6 +1,6 @@
 :root {
   --text: #ffffff;
-  --text-h: #ffffff;
+  --text-h: #ffffff;  
   --bg:linear-gradient(
   135deg,
   #64315f 0%,
@@ -8,7 +8,8 @@
   #162a7a 70%,
   #0b1f66 100%
 );
-  --button: 
+  /*--button: ;*/
+  --border: rgba(255, 255, 255, 0.2);
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
   --accent-bg: rgba(170, 59, 255, 0.1);
