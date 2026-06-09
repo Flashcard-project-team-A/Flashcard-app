@@ -32,7 +32,7 @@
 .home {
   background-color: var(--bg);
    text-align: center;
-  border-inline: 1px solid var(--border);
+ /* border-inline: 1px solid var(--border);*/
   min-height: 100svh;
   display: flex;
   flex-direction: column;
