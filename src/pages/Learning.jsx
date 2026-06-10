@@ -1,7 +1,8 @@
 import {useState, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 
-import "../components/Temp.css";
+import "../components/LearningButtons.css";
+import "../components/LearningCards.css";
 import {db} from "../db";
 
 import LearnedBtn from "../components/LearnedBtn.jsx";
@@ -22,6 +23,7 @@ export default function Learning(){
     const [progress, setProgress] = useState(0);
     const [currentSet, setCurrentSet] = useState(null);
     const [index, setIndex] = useState(0);
+    const [showAnswer, setShowAnswer] = useState(false);
 
 //Bei Änderung von id ausführen
     useEffect(()=> {
@@ -41,12 +43,21 @@ export default function Learning(){
 //Klick auf Bestätigungsbutton soll Fortschrittsanzeige erhöhen
     
 
-    function handleClick(){
+    function learnedClick(){
         if(index < currentSet.karten.length-1){
             setIndex(prevIndex => prevIndex + 1);
         }
         setProgress(progress +  1);
-        
+        setShowAnswer(false);
+    }
+
+
+    function notLearnedClick(){
+        if(index < currentSet.karten.length-1){
+            setIndex(0);
+        }
+        setProgress(progress +  1);
+        setShowAnswer(false);
     }
 
     return (
@@ -60,13 +71,16 @@ export default function Learning(){
     {/*Frage und Antwort-Karte*/}
             <div className = "cardsContainer">
                 <QuestionCard card={currentSet.karten[index]}/>
-                <AnswerCard card={currentSet.karten[index]}/>
+                <AnswerCard card={currentSet.karten[index]} 
+                showAnswer={showAnswer}
+                setShowAnswer={setShowAnswer}/>
             </div>
+
 
     {/*Buttons unten zum Nochmal lernen und bestätigen*/}
             <div className="buttons">
-                <LearnedBtn onClick={handleClick}/>
-                <TryAgainBtn/>
+                <LearnedBtn onClick={learnedClick}/>
+                <TryAgainBtn onClick={notLearnedClick}/>
             </div>
         </>
     );

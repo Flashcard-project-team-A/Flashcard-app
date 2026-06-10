@@ -1,0 +1,27 @@
+
+/* Styling für Elemente auf Learning-Seite*/
+
+/*Styling für beide Karten*/
+.card{
+    padding: 5vh;
+    background-color: rgb(255, 255, 255);
+    width: 30vw;
+    height: 20vh;
+    padding: 10px;
+    border: 5px solid black;
+    color: black;
+}
+
+/*Container für Karten*/
+.cardsContainer{
+    position: fixed;
+    top: 100px;
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+}
+    
