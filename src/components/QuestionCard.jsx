@@ -1,4 +1,4 @@
-import './Temp.css'
+import './LearningCards.css'
 
 export default function QuestionCard({card}){
 return (

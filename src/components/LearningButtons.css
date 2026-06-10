@@ -1,0 +1,31 @@
+
+/* Styling für Elemente auf Learning-Seite*/
+
+
+/*Styling für einzelne Buttons*/
+#LearnedBtn{
+    background-color: rgb(29, 198, 43);
+    border-radius: 100%;
+    width: 4rem;
+    height: 4rem;
+}
+
+#TryAgainBtn{
+    background-color: rgb(198, 29, 29);
+    border-radius: 100%;
+    width: 4rem;
+    height: 4rem;
+}
+
+/*Container für Buttons*/
+.buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  padding: 10px;
+}
+
