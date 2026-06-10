@@ -5,15 +5,17 @@ export default function SetList({sets}){
     return(
         <>
             {sets.map((set) => (
-                <div
+           
+                    <div
                 key = {set.id}
                 onClick={() => navigate("/learning/" + set.id)}
-                style={{cursor: "pointer", padding: "10px", backgroundColor: "violet"}}
+                className="glass-box"
                 >
                     <h3>{set.name}</h3>
                     <p>{set.karten.length} Karten </p>
                     <p> Erstellungsdatum: {set.createdAt} </p>
                 </div>
+           
             ))}
         </>
     );

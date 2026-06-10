@@ -1,0 +1,70 @@
+.Form-container{
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    
+}
+
+.h1-CreateSet{
+font-size: 1rem;
+padding-left: 1rem;
+}
+
+.createSet-glass-btn {
+ width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  color: white;
+  
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-btn{
+ display: flex;
+  justify-content: flex-end;
+  width: 50%;
+}
+.line-input {
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  outline: none;
+  padding: 6px 2px;
+  padding-top: 2rem;
+  background: transparent;
+  width: 95%;
+}
+label{
+color: rgb(192, 186, 179);
+
+}
+.btn{
+ padding-top: 1rem;
+}
+.form-input{
+padding-top: 2rem;
+
+}
+.glass {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  font-size: 1.1rem;
+   width: 10rem;
+  height: 2.5rem;
+}
