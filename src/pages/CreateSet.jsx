@@ -60,6 +60,7 @@ function CreateSet() {
     const neueKarte = {
       frage: frage,
       antwort: antwort,
+      solved: false,
     };
     setKarten([...karten, neueKarte]);
     setFrage("");

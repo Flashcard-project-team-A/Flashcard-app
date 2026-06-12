@@ -6,7 +6,7 @@ export default function Progressbar({progress}){
 
     return (
 
-        <p> Fortschritt: {progress}</p>
+        <p> Fortschritt: {progress} %</p>
     );
 
 }
