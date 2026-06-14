@@ -6,10 +6,7 @@ import NoSets from "../components/NoSets.jsx";
 import SetList from "../components/SetList.jsx";
 
 function Home() {
-
-
   const navigate = useNavigate();
-  const [query, setQuery] = useState("");
 
    //Alle Lernsets laden
   const [allSets, setAllSets] = useState([]);
@@ -29,7 +26,10 @@ function Home() {
     await db.lernsets.clear();
     setAllSets([]);
   }
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const filteredSets = allSets.filter(set =>
+    set.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
 
   return (
@@ -45,8 +45,8 @@ function Home() {
           <input
             type="text"
             placeholder="Suchen..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             style={{ width: "100%", padding: "8px" }}
           />
           </div>      
@@ -65,7 +65,7 @@ function Home() {
         </div>
         
         <div className="container-sets">
-<SetList sets={allSets} />
+<SetList sets={filteredSets} />
         </div>
         
       
