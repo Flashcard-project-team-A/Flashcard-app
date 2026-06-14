@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function SetList({sets}){
     const navigate = useNavigate();
+
+    
     return(
         <>
             {sets.map((set) => (
