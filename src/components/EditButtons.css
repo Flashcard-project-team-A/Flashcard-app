@@ -1,0 +1,91 @@
+
+/*Top-buttons oben rechts*/
+.top-buttons {
+  top: 1.25rem;
+  right: 1.25rem;
+  position: fixed;
+  display: flex;
+  gap:0.625rem;
+  z-index: 10;
+}
+.edit-button, .delete-button{
+    padding: 0.625rem 1.25rem;
+    border: 2px solid black;
+    background-color:#441a93;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+}
+.delete-button{
+    color:  rgb(198, 29, 29);
+}
+.edit-button:hover, .delete-button:hover{
+    background-color: #361475;
+}
+/*Ende des Bereichs der Top-Buttons */
+
+/*das Pop-up-Fenster */
+.popup-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.popup-box {
+  background-color: #441a93;
+  padding: 1.875rem;
+  border: 4px solid black;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 25rem;
+  width: 90%;
+  color: black;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+  font-size: 1.25rem;
+}
+
+.popup-box h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.popup-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.popup-cancel, .popup-confirm, .popup-update-confirm{
+  padding: 0.75rem 1.5rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  color:black;
+  background-color: #612ac6;
+  font-size: 1rem;
+}
+.popup-confirm {
+  background-color: rgb(198, 29, 29);
+  color: black;
+}
+
+.popup-confirm:hover {
+    background-color:rgb(134, 20, 20) ;
+}
+.popup-cancel:hover {
+    background-color: #361475;
+}
+
+.popup-update-confirm:hover {
+  background-color: #361475;
+}
+/*Ende des popup-Fenster Bereichs */
