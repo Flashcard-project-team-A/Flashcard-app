@@ -6,9 +6,7 @@ import NoSets from "../components/NoSets.jsx";
 import SetList from "../components/SetList.jsx";
 
 function Home() {
-  const content = false;
   const navigate = useNavigate();
-  const [query, setQuery] = useState("");
 
    //Alle Lernsets laden
   const [allSets, setAllSets] = useState([]);
@@ -28,7 +26,10 @@ function Home() {
     await db.lernsets.clear();
     setAllSets([]);
   }
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const filteredSets = allSets.filter(set =>
+    set.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
 
   return (
@@ -44,30 +45,36 @@ function Home() {
           <input
             type="text"
             placeholder="Suchen..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             style={{ width: "100%", padding: "8px" }}
           />
           </div>      
       </div>
 
-   {/*} Begrüßungs-Text {*/}
-      {!content && (
-        <><div className=" container">
-              <h1>Deine Sets</h1>
-              <p>Drücke auf das Lernset, um den Lernmodus zu starten!</p>
-          </div>
-        </>
-      )}
 
  {/*} Wenn es Sets gibt, zeige sie/SetList-Komponent an. Wenn nicht, zeige NoSet-Komponent an {*/}
     {setsExist? (
       <>
-        <button onClick={deleteAllSets}> Alle Sets löschen </button>
-        <SetList sets={allSets} />
+      <><div className=" container">
+             <h1>Deine Sets</h1>
+          </div>
+        </>
+        <div className="container">
+          <button className="glass-btn-delete" onClick={deleteAllSets}> Alle Sets löschen </button>
+        </div>
+        
+        <div className="container-sets">
+<SetList sets={filteredSets} />
+        </div>
+        
+      
       </>
     ) : (
-      <NoSets/>
+       <><div className="sets">
+              <h1>Deine Sets</h1>
+            </div><NoSets /></>
+    
     )}
     
  {/*} Plus-Icon, um Sets hinzuzufügen {*/}

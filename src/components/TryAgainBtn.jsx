@@ -1,15 +1,11 @@
-export default function TryAgainBtn(){
-
-    function handleClick(){
-        console.log("Oh oh, wrong!");
-    }
-
+export default function TryAgainBtn({onClick}){
 
     return (
 
-        <button id="TryAgainBtn" onClick={handleClick}>
+        <button id="TryAgainBtn" onClick={onClick}>
             No
         </button>
 
     );
 }
+
