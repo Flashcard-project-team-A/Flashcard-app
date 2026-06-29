@@ -1,9 +1,11 @@
-import "./Home.css";
+import "../styles/Home.css";
+import "../styles/global.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {db} from "../db";
 import NoSets from "../components/NoSets.jsx";
 import SetList from "../components/SetList.jsx";
+
 
 function Home() {
   const navigate = useNavigate();

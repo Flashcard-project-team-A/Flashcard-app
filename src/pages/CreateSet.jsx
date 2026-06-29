@@ -1,7 +1,8 @@
 import { useState } from "react";
 //import React from 'react';
 import { db } from "../db";
-import "./CreateSet.css";
+import "../styles/CreateSet.css";
+import "../styles/global.css";
 import { useNavigate } from "react-router-dom";
 /*
 //  IndexedDB Setup

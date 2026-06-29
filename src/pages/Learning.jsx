@@ -1,9 +1,10 @@
 import {useState, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 
-import "../components/LearningButtons.css";
-import "../components/LearningCards.css";
-import "../components/EditButtons.css";
+import "../styles/LearningButtons.css";
+import "../styles/LearningCards.css";
+import "../styles/EditButtons.css";
+import "../styles/global.css";
 import {db} from "../db";
 
 import LearnedBtn from "../components/LearnedBtn.jsx";
@@ -12,6 +13,7 @@ import Progressbar from "../components/Progressbar.jsx";
 import AnswerCard from "../components/AnswerCard.jsx";
 import QuestionCard from "../components/QuestionCard.jsx";
 import Edit from "../components/Edit.jsx";
+
 
 
 export default function Learning(){
@@ -162,8 +164,8 @@ export default function Learning(){
     <>
     {/* Steuerungsbuttons oben rechts*/}
         <div className="top-buttons">
-            <button className="edit-button" onClick={()=> setShowEditPopup(true)}>✏️Bearbeiten</button>
-            <button className="delete-button" onClick={handleDeleteCard}>🗑️Löschen</button>
+            <button className="edit-button glass" onClick={()=> setShowEditPopup(true)}>✏️Bearbeiten</button>
+            <button className="delete-button glass" onClick={handleDeleteCard}>🗑️Löschen</button>
         </div>
 
     {/*Fortschrittsanzeige für das Lernset. Nicht auf die Karten selbst tun, sondern woanders auf die Seite*/}

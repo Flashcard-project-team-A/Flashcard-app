@@ -1,13 +1,7 @@
 :root {
   --text: #ffffff;
   --text-h: #ffffff;  
-  --bg:linear-gradient(
-  135deg,
-  #64315f 0%,
-  #2e2d78 35%,
-  #162a7a 70%,
-  #0b1f66 100%
-);
+  --bg:
   /*--button: ;*/
   --border: rgba(255, 255, 255, 0.2);
   --code-bg: #f4f3ec;
@@ -92,11 +86,19 @@
   }
 }*/
 
-/*
+
+
 body {
   margin: 0;
+  background:
+  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  url("assets/bg_blue.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-
+/*
 
 #root {
   width: 1126px;

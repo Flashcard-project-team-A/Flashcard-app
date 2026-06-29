@@ -17,7 +17,7 @@ export default function Edit({card, onClose, onSave}){
     return (
         //Popup-fesnter style wiederverwenden
         <div className="popup-background">
-            <div className="popup-box">
+            <div className="popup-box  glass">
                 <h3>Aktuelle Karte bearbeiten</h3>
                 
                 {/*Eingabefeld für  frage */}

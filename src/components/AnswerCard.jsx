@@ -1,4 +1,4 @@
-import './LearningCards.css'
+import '../styles/LearningCards.css'
 
 export default function AnswerCard({card, showAnswer, setShowAnswer}){
 
@@ -6,7 +6,7 @@ export default function AnswerCard({card, showAnswer, setShowAnswer}){
 
     //toggle showing answer
     return(
-        <div className="card"
+        <div className="card glass"
             onClick={() => setShowAnswer(!showAnswer)}>
                 
             {showAnswer? (

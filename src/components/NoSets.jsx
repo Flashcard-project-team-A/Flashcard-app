@@ -1,5 +1,5 @@
 import logo from "../assets/unhappy.png";
-import "./NoSets.css"      
+import "../styles/NoSets.css"      
           
 export default function NoSets(){
     return(
