@@ -164,8 +164,8 @@ export default function Learning(){
     <>
     {/* Steuerungsbuttons oben rechts*/}
         <div className="top-buttons">
-            <button className="edit-button glass" onClick={()=> setShowEditPopup(true)}>✏️Bearbeiten</button>
-            <button className="delete-button glass" onClick={handleDeleteCard}>🗑️Löschen</button>
+            <button className="edit-button glass glass_button" onClick={()=> setShowEditPopup(true)}>✏️Bearbeiten</button>
+            <button className="delete-button glass glass_button" onClick={handleDeleteCard}>🗑️Löschen</button>
         </div>
 
     {/*Fortschrittsanzeige für das Lernset. Nicht auf die Karten selbst tun, sondern woanders auf die Seite*/}
