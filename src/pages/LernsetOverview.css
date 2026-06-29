@@ -1,0 +1,163 @@
+/*für gesamte Übersicht */
+.overview-styling {
+    max-width: 60rem;
+    width: 100%;
+    margin: 2.5rem auto;
+    padding: 1.25rem;
+    font-family: "inter", sans-serif;
+    color: white;
+}
+
+
+
+.overview-title {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: 1000;
+    margin-bottom: 1.25rem;
+}
+/*unsichtaber container für start button, platzierunf*/
+.start-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.875rem;
+}
+/*eigentliche Lernen starten!-button*/
+.start-learning-btn {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 0.75rem 1.875rem;
+    font-size: 1.1rem; 
+    border-radius: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
+    transition: background 0.2s ease; 
+}
+.start-learning-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+
+/*trennlinie unter titel*/
+.overview-divider {
+    border: none;
+    height: 0.0625rem;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 1.875rem 0;
+}
+
+.cards-number {
+    font-size: 1.1rem;
+    color: rgb(192, 186, 179);
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+
+
+
+/*gesamte Liste */
+.overview-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/*Card Zeile (Question und answer nebeneinander)*/
+.overview-card-row {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    width: 100%;
+}
+/*.overview-card-row:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.01);
+}*/
+
+
+
+.overview-card-question, .overview-card-answer {
+    flex: 1;
+    padding: 0 1rem;
+    text-align: left;
+}
+/*trennlinien bei Card mittig*/
+.overview-card-answer {
+    border-left: 0.0625rem solid rgba(255, 255, 255, 0.15);
+}
+/*Frage- und Antwort-text über Cards*/
+.side-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+    color: rgb(192, 186, 179);
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+/*eigentliche text der Cards*/
+.overview-card-question p, .overview-card-answer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+
+
+/*position Mülleimer icon*/
+.overview-card-actions {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0.0625rem;
+    padding-left: 0.625rem;
+}
+/*Mülleimer icon selbst*/
+.card-delete-icon {
+    background: transparent;
+    border: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 50%;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+.card-delete-icon:hover {
+    background: rgba(198, 29, 29, 0.2);
+    transform: scale(1.1);
+}
+
+
+
+
+/* unterlinie für Input-feld */
+.overview-inline-input {
+    background: transparent;
+    border: none;
+    color: white;
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.6);
+    font-size: inherit;      /* Übernimmt die Schriftgröße des Elternelements */
+    font-family: inherit;
+    width: 100%;
+    padding: 0.25rem 0;
+    outline: none;
+    transition: border-bottom-color 0.2s ease;
+}
+/*Linie leuchtet wenn User auf Feld klickt*/
+.overview-inline-input:focus {
+    border-bottom: 1px solid #ffffff;
+}
+.overview-title-input {
+    font-size: 2rem;
+    font-weight: 1000;
+    margin-bottom: 1.25rem;
+}

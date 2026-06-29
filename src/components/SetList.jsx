@@ -10,7 +10,7 @@ export default function SetList({sets}){
            
                     <div
                 key = {set.id}
-                onClick={() => navigate("/learning/" + set.id)}
+                onClick={() => navigate("/lernsetoverview/" + set.id)}
                 className="glass-box"
                 >
                     <h3>{set.name}</h3>
