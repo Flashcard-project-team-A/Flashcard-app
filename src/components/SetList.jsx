@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "../styles/global.css";
 
 export default function SetList({sets}){
     const navigate = useNavigate();
@@ -11,11 +12,11 @@ export default function SetList({sets}){
                     <div
                 key = {set.id}
                 onClick={() => navigate("/lernsetoverview/" + set.id)}
-                className="glass-box"
+                className="glass glass-box"
                 >
                     <h3>{set.name}</h3>
                     <p>{set.karten.length} Karten </p>
-                    <p> Erstellungsdatum: {set.createdAt} </p>
+                    <p style={{fontSize: "0.5rem" }}> Erstellungsdatum: {set.createdAt} </p>
                 </div>
            
             ))}

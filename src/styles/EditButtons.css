@@ -24,26 +24,20 @@
 
 /*style angepasst*/
 .edit-button, .delete-button{
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    color: white;
+
     padding: 0.625rem 1.25rem;
-    font-size: 0.8rem; 
-    cursor: pointer;
-    border-radius: 16px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: background 0.2s ease; 
+
 }
 
+
 .delete-button{
-    color:  rgb(198, 29, 29);
+    color:  var(--warning-color);
 }
-.edit-button:hover, .delete-button:hover{
-    background-color: #361475;
+.edit-button:hover{
+    background-color: var(--tertiary-hover);
+}
+.delete-button:hover{
+    background-color: var(--warning-hover);
 }
 /*Ende des Bereichs der Top-Buttons */
 
@@ -62,16 +56,26 @@
 }
 
 .popup-box {
-  background-color: #441a93;
   padding: 1.875rem;
-  border-radius: 16px;
   text-align: center;
   max-width: 25rem;
   width: 90%;
+  cursor: default;
+  /*
+  background-color: var(--main-color);
+
+  border-radius: 16px;
+  
   color: rgb(255, 255, 255);
   box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
   font-size: 1.25rem;
   border: 2px solid rgba(255, 255, 255, 0.15);
+  */
+ line-height: 1;
+}
+
+.popup-box:hover{
+  background: rgba(255, 255, 255, 0.08);
 }
 
 
@@ -93,7 +97,7 @@
   font-weight: bold;
   cursor: pointer;
   color:black;
-  background-color: #612ac6;
+  background-color: var(--tertiary-color);;
   font-size: 1rem;
   transition: background 0.2s ease;
 
@@ -104,13 +108,13 @@
 }
 
 .popup-confirm:hover {
-    background-color:rgb(134, 20, 20) ;
+    background-color:var(--warning-hover); ;
 }
 .popup-cancel:hover {
-    background-color: #361475;
+    background-color: var(--tertiary-hover);
 }
 
 .popup-update-confirm:hover {
-  background-color: #361475;
+  background-color: var(--main-color);
 }
 /*Ende des popup-Fenster Bereichs */

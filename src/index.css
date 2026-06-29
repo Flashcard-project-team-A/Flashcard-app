@@ -1,4 +1,16 @@
 :root {
+  --main-font: "Bruno Ace SC";
+  --secondary-font: "Michroma";
+  --main-color:  #134ff4;
+  --secondary-color: white;
+  --tertiary-color: #1ca7ab;
+  --tertiary-hover: #0e6265;
+  --accent-color: #fede29;
+  --warning-color: #c60012;
+  --warning-hover: #7f002a;
+  --glass-hover: rgba(100, 208, 255, 0.2);
+
+
   --text: #ffffff;
   --text-h: #ffffff;  
   --bg:
@@ -15,6 +27,7 @@
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
+  --faint-color: rgb(81, 164, 209);
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -25,10 +38,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /*
 
   height: 100%;
   width: 100%;
   margin: 0;
+*/
+
 
 
   @media (max-width: 1024px) {
@@ -86,6 +102,40 @@
   }
 }*/
 
+h1{
+  font-family: var(--main-font), sans-serif; 
+  font-size: clamp(1.5rem, 10vw, 6rem);
+  color: var(--secondary-color);
+  line-height: 1.1;
+}
+
+h2{
+  font-family: var(--main-font), sans-serif; 
+  font-size: clamp(1rem, 5vw, 6rem);
+  color: var(--accent-color);
+}
+
+h3{
+  font-family: var(--main-font), sans-serif; 
+  font-size: clamp(1rem, 2vw, 6rem);
+  color: var(--tertiary-color);
+}
+
+p{
+  font-family: var(--secondary-font), sans-serif; 
+  font-size: clamp(0.5rem, 2vw, 6rem);
+  color: var(--secondary-color);
+}
+
+.glass_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--secondary-font), sans-serif; 
+  font-size: clamp(0.5rem, 2vw, 1.5rem);
+  line-height: 1;
+  padding: 1rem;
+}
 
 
 body {
@@ -97,7 +147,16 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-family: "Michroma", sans-serif;
 }
+
+.nohover:hover{
+  
+}
+
+
+
+
 /*
 
 #root {
@@ -158,3 +217,17 @@ code {
   background: var(--code-bg);
 }
 */
+
+html,
+body,
+#root {
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+

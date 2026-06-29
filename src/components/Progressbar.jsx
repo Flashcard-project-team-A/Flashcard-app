@@ -6,7 +6,7 @@ export default function Progressbar({progress}){
 
     return (
 
-        <p> Fortschritt: {progress} %</p>
+        <p style={{ marginLeft: "1rem" }}> Fortschritt: {progress} %</p>
     );
 
 }

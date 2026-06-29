@@ -1,12 +1,10 @@
+
+
 export default function LearnedBtn({onClick}){
-
-    //setProgress(progress + 1);
-
-
 
         return (
 
-        <button id="LearnedBtn" onClick={onClick}>
+        <button id="LearnedBtn" className ="glass" onClick={onClick}>
             Yes
         </button>
 

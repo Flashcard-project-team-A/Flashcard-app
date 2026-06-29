@@ -82,7 +82,7 @@ function CreateSet() {
     const lernset = {
       name: setName,
       karten: karten,
-      createdAt: new Date().toISOString(),
+      createdAt: new Intl.DateTimeFormat("de-DE").format(new Date()),
     };
 
     try {
@@ -133,9 +133,7 @@ function CreateSet() {
                   onChange={(e) => setAntwort(e.target.value)} />
                    <label>Definition</label>
                    <br></br>
-                   <div className="btn">
-                    <button  className="glass"onClick={addCard}>Karte hinzufügen</button>
-                   </div>
+                    <button  className="btn glass" onClick={addCard}>Karte hinzufügen</button>
                    
           </div></>
   );

@@ -2,7 +2,7 @@ export default function TryAgainBtn({onClick}){
 
     return (
 
-        <button id="TryAgainBtn" onClick={onClick}>
+        <button id="TryAgainBtn" className= "glass" onClick={onClick}>
             No
         </button>
 

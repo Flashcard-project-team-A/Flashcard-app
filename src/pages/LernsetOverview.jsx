@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../db';
-import './LernsetOverview.css';
-import '../components/EditButtons.css';
+import '../styles/LernsetOverview.css';
+import '../styles/EditButtons.css';
+import '../styles/global.css';
 
 
 
@@ -105,10 +106,10 @@ export default function LernsetOverview() {
 
             {/*wieder beide Steuerungsbuttons oben rechts*/}
             <div className="top-buttons">
-            <button className="edit-button" onClick={toggleEditMode}>
+            <button className="edit-button glass glass_button" onClick={toggleEditMode}>
                 {isEditing ? "✔️ Fertig" : "✏️ Bearbeiten"}
             </button>          
-            <button className="delete-button" onClick={handleDeleteSet}>🗑️Set löschen</button>
+            <button className="delete-button glass glass_button" onClick={handleDeleteSet}>🗑️ Set löschen</button>
             </div>
 
 
@@ -126,7 +127,7 @@ export default function LernsetOverview() {
                     }}
                 />
             ):(
-                <h1 className="overview-title">{currentSet.name}</h1>
+                <h2 className="overview-title">{currentSet.name}</h2>
             )}           
 
 
@@ -147,7 +148,7 @@ export default function LernsetOverview() {
             <hr className="overview-divider" />
 
             {/* Lernsetübersicht mit liste aller Karten dadrunter*/}
-            <h4 className="cards-number">Karten ({currentSet.karten ? currentSet.karten.length : 0})</h4>
+            <h3 className="cards-number">Karten ({currentSet.karten ? currentSet.karten.length : 0})</h3>
             
 
             <div className="overview-cards-list">
@@ -218,7 +219,7 @@ export default function LernsetOverview() {
             {/*popup fürs Löschen des gesamten Sets*/}
             {LoeschPopup && (
                 <div className="popup-background">
-                    <div className="popup-box">
+                    <div className="popup-box glass">
                         <h3>Bist du sicher?</h3>
                         <p>Möchtest du dieses Lernset wirklich löschen?</p>
                         <div className="popup-buttons">

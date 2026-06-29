@@ -42,45 +42,47 @@ function Home() {
       <div>
         <h1 className="header">Flashcard App</h1>
       </div>
-      <div className="searchbox" >
-        <div className="glass-box">
-          <input
-            type="text"
-            placeholder="Suchen..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            style={{ width: "100%", padding: "8px" }}
-          />
-          </div>      
-      </div>
+      
 
 
  {/*} Wenn es Sets gibt, zeige sie/SetList-Komponent an. Wenn nicht, zeige NoSet-Komponent an {*/}
     {setsExist? (
       <>
       <><div className=" container">
-             <h1>Deine Sets</h1>
+             <h2>Deine Sets</h2>
           </div>
         </>
-        <div className="container">
-          <button className="glass-btn-delete" onClick={deleteAllSets}> Alle Sets löschen </button>
-        </div>
+        <div className="searchbox" >
+        <div className="glass-box">
+          <input
+            type="text"
+            placeholder="Suchen..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          </div>      
+      </div>
+
         
         <div className="container-sets">
-<SetList sets={filteredSets} />
+          <SetList sets={filteredSets} />
+        </div>
+
+          <div className="container">
+          <button className="glass-btn-delete glass glass_button" onClick={deleteAllSets}>Alle Sets löschen </button>
         </div>
         
       
       </>
     ) : (
        <><div className="sets">
-              <h1>Deine Sets</h1>
+              <h2>Deine Sets</h2>
             </div><NoSets /></>
     
     )}
     
  {/*} Plus-Icon, um Sets hinzuzufügen {*/}
-      <button className="floating-btn glass" onClick={() => navigate("/CreateSet")}>+</button>
+      <button className="floating-btn glass  " onClick={() => navigate("/CreateSet")}>+</button>
       </div>
     </>
   );

@@ -4,17 +4,25 @@
 
 /*Styling für einzelne Buttons*/
 #LearnedBtn{
-    background-color: rgb(29, 198, 43);
+    background-color: var(--tertiary-hover);
     border-radius: 100%;
     width: 4rem;
     height: 4rem;
 }
 
 #TryAgainBtn{
-    background-color: rgb(198, 29, 29);
+    background-color: var(--warning-hover);
     border-radius: 100%;
     width: 4rem;
     height: 4rem;
+}
+
+#LearnedBtn:hover{
+    background-color: var(--tertiary-color);
+}
+
+#TryAgainBtn:hover{
+    background-color: var(--warning-color);
 }
 
 /*Container für Buttons*/
@@ -26,6 +34,5 @@
   display: flex;
   flex-direction:row;
   justify-content: space-around;
-  padding: 10px;
-}
+  padding: 10px;}
 

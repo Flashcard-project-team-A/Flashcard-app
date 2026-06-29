@@ -1,19 +1,18 @@
 .searchbox{
   display: flex;
   justify-content: center;
-  border-radius: 20%;
-  padding-top:1rem;
-
 }
+
 .glass-box {
-  width: 280px;
-  padding:  6px 12px;
+  width: clamp(200px, 30vw, 400px);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 1em;
+  
 }
 
 .glass-box input {
@@ -22,11 +21,16 @@
   outline: none;
   background: transparent;
   color: white;
-  font-size: 14px;
+  color: var(--faint-color);
+    font-family: var(--secondary-font), sans-serif; 
+  font-size: clamp(0.5rem, 100%, 2rem);
+
 }
 
 .glass-box input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--faint-color);
+    font-family: var(--secondary-font), sans-serif; 
+  font-size: clamp(0.5rem, 100%, 2rem);
 }
 
 .home {
@@ -39,12 +43,7 @@
   box-sizing: border-box;
 }
 
-.header{
-  
-font-size: 2rem;
-  font-family: "inter", sans-serif;
-  font-weight: 1000;
-}
+
 .container {
   display: flex;
   justify-content: center;
@@ -53,10 +52,15 @@ font-size: 2rem;
 .container-sets {
   display: flex;
   flex-direction: column;
- align-items: center;
-  padding-top: 2rem;
-  
+  align-items: center;
+  padding: 5rem;
+  gap: 1rem;
+  width: 100%;
+ box-sizing: border-box;
+
+
 }
+
 .noContent {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
@@ -72,7 +76,6 @@ font-size: 2rem;
 }
 
 .noContent h1{
-  font-size: 1.5rem;
   display: flex;
 justify-content: center;
 
@@ -81,7 +84,7 @@ justify-content: center;
 .sets{
   padding-top: 7rem;
 }
-
+/*
 
 .glass {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -91,19 +94,18 @@ justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
 }
+   */
 .glass-btn-delete {
-  width: 50%;
-  
-  font-size: 1.3rem;
- 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  left: 4rem;
+  height: 2rem;
+  bottom: 2rem;
+  font-family: var(--secondary-font), sans-serif; 
+  color: var(--warning-color);
+  height:auto;
+  padding: 1rem;
 }
 .floating-btn {
   position: fixed;
@@ -118,8 +120,8 @@ justify-content: center;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  font-size: 2rem;
   cursor: pointer;
+
+  font-size: 4rem;
 }
 
