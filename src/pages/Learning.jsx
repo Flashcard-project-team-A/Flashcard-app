@@ -24,9 +24,13 @@ export default function Learning(){
 //id aus URL holen (z.B. .../learning/1 -> id = 1)
     const {id} = useParams(); 
 
-    const [progress, setProgress] = useState(0);
+   // const [progress, setProgress] = useState(0);
     const [currentSet, setCurrentSet] = useState(null);
     const [index, setIndex] = useState(0);
+
+    function shuffleCards(cards){
+    return [...cards].sort(() => Math.random() - 0.5);
+}
 
     //Für das Popup-Fenster, am Anfang nicht sichtbar-> false
     const [showPopup, setShowPopup] = useState(false);
@@ -35,17 +39,30 @@ export default function Learning(){
     const [showAnswer, setShowAnswer] = useState(false);
 
 //Bei Änderung von id ausführen
-    useEffect(()=> {
-        async function loadSet(){
-            const set = await db.lernsets.get(Number(id)) //lernsets mit passender id aus Datenbank in set speichern
-            set.karten = set.karten.map(card => ({...card, solved: false}));
-            setCurrentSet(set);
-            setIndex(0);
-        }
+ useEffect(()=> {
+    async function loadSet(){
 
-        loadSet();
+        const set = await db.lernsets.get(Number(id));
 
-    }, [id]);
+        const shuffledCards = shuffleCards(
+            set.karten.map(card => ({
+                ...card,
+                solved: false
+            }))
+        );
+
+        const shuffledSet = {
+            ...set,
+            karten: shuffledCards
+        };
+
+        setCurrentSet(shuffledSet);
+        setIndex(0);
+    }
+
+    loadSet();
+
+}, [id]);
 
     if (!currentSet){
         return <div>Lade Set...</div>;
@@ -94,7 +111,7 @@ export default function Learning(){
         }));
 
 
-        setProgress(prevProgress => prevProgress + 1);
+        //setProgress(prevProgress => prevProgress + 1);
         setShowAnswer(false);
         showNext();
     }

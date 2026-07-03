@@ -42,6 +42,8 @@ padding-left: 1rem;
   padding-top: 2rem;
   background: transparent;
   width: 95%;
+  color:rgb(192, 186, 179);
+  font: inherit;
 }
 label{
 color: rgb(192, 186, 179);
