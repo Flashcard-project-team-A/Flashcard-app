@@ -16,16 +16,22 @@ import QuestionCard from "../components/QuestionCard.jsx";
 import Edit from "../components/Edit.jsx";
 
 
-export default function Learning() {
-  console.log("DB:", db);
 
-  //Set laden
-  //id aus URL holen (z.B. .../learning/1 -> id = 1)
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [progress, setProgress] = useState(0);
-  const [currentSet, setCurrentSet] = useState(null);
-  const [index, setIndex] = useState(0);
+export default function Learning(){
+
+    console.log("DB:", db);
+    
+    //Set laden
+//id aus URL holen (z.B. .../learning/1 -> id = 1)
+    const {id} = useParams(); 
+
+   // const [progress, setProgress] = useState(0);
+    const [currentSet, setCurrentSet] = useState(null);
+    const [index, setIndex] = useState(0);
+     const navigate = useNavigate();
+    function shuffleCards(cards){
+    return [...cards].sort(() => Math.random() - 0.5);
+}
 
   //Für das Popup-Fenster, am Anfang nicht sichtbar-> false
   const [showPopup, setShowPopup] = useState(false);
@@ -33,17 +39,31 @@ export default function Learning() {
 
   const [showAnswer, setShowAnswer] = useState(false);
 
-  //Bei Änderung von id ausführen
-  useEffect(() => {
-    async function loadSet() {
-      const set = await db.lernsets.get(Number(id)); //lernsets mit passender id aus Datenbank in set speichern
-      set.karten = set.karten.map((card) => ({ ...card, solved: false }));
-      setCurrentSet(set);
-      setIndex(0);
+//Bei Änderung von id ausführen
+ useEffect(()=> {
+    async function loadSet(){
+
+        const set = await db.lernsets.get(Number(id));
+
+        const shuffledCards = shuffleCards(
+            set.karten.map(card => ({
+                ...card,
+                solved: false
+            }))
+        );
+
+        const shuffledSet = {
+            ...set,
+            karten: shuffledCards
+        };
+
+        setCurrentSet(shuffledSet);
+        setIndex(0);
     }
 
     loadSet();
-  }, [id]);
+
+}, [id]);
 
   if (!currentSet) {
     return <div>Lade Set...</div>;
@@ -66,15 +86,14 @@ export default function Learning() {
   const total = currentSet.karten.length;
   const allSolved = solvedCount === total;
 
-  function learnAgain() {
-    setCurrentSet((prev) => ({
-      ...prev,
-      karten: prev.karten.map((card) => ({ ...card, solved: false })),
-    }));
-    setIndex(0);
-    setProgress(0);
-    setShowAnswer(false);
-  }
+ function learnAgain() {
+  setCurrentSet((prev) => ({
+    ...prev,
+    karten: shuffleCards(prev.karten.map((card) => ({ ...card, solved: false }))),
+  }));
+  setIndex(0);
+  setShowAnswer(false);
+}
 
   function navToHomepage() {
     navigate("/");
@@ -108,10 +127,11 @@ export default function Learning() {
       ),
     }));
 
-    setProgress((prevProgress) => prevProgress + 1);
-    setShowAnswer(false);
-    showNext();
-  }
+
+        //setProgress(prevProgress => prevProgress + 1);
+        setShowAnswer(false);
+        showNext();
+    }
 
   function notLearnedClick() {
     setShowAnswer(false);
