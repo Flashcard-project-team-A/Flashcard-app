@@ -48,7 +48,7 @@ async function saveLernset(lernset) {
 */
 // Eigentlichre Code
 function CreateSet() {
- const navigate = useNavigate();
+  const navigate = useNavigate();
   const [setName, setSetName] = useState("");
   const [frage, setFrage] = useState("");
   const [antwort, setAntwort] = useState("");
@@ -94,48 +94,65 @@ function CreateSet() {
       setKarten([]);
       setFrage("");
       setAntwort("");
+      return true;
     } catch (err) {
       console.error("Fehler beim Speichern:", err);
       alert("Fehler beim Speichern!");
+      return false;
     }
   }
 
   return (
-    <><div className="Form-container">
-        <button className="createSet-glass-btn" onClick={() => navigate("/")}>x</button>
-          <h1 className="h1-CreateSet">Lernset erstellen</h1>
-          <div className="form-btn">
-        <button className=" createSet-glass-btn" onClick={saveSet} >✓</button> </div>
-      </div><div className="form-input">
+    <>
+      <div className="Form-container">
+        <button className="createSet-glass-btn" onClick={() => navigate("/")}>
+          x
+        </button>
+        <h1 className="h1-CreateSet">Lernset erstellen</h1>
+        <div className="form-btn">
+          <button
+            className=" createSet-glass-btn"
+            onClick={async () => {
+              const success = await saveSet();
+              if (success) {
+                navigate("/");
+              }
+            }}
+          >
+            ✓
+          </button>{" "}
+        </div>
+      </div>
+      <div className="form-input">
+        <input
+          type="text"
+          className="line-input"
+          value={setName}
+          onChange={(e) => setSetName(e.target.value)}
+        />
+        <label>Name des Lernsets</label>
 
+        <input
+          type="text"
+          className="line-input"
+          value={frage}
+          onChange={(e) => setFrage(e.target.value)}
+        />
+        <label>Begriff</label>
 
-              
-              <input
-                  type="text"
-                  className="line-input"
-                  value={setName}
-                  onChange={(e) => setSetName(e.target.value)} />
-                  <label>Name des Lernsets</label>
-
-             
-              
-              <input
-                  type="text"
-                  className="line-input"
-                  value={frage}
-                  onChange={(e) => setFrage(e.target.value)} />
-                  <label>Begriff</label>
-             
-              <input
-                  type="text"
-                  className="line-input"
-                  value={antwort}
-                  onChange={(e) => setAntwort(e.target.value)} />
-                   <label>Definition</label>
-                   <br></br>
-                    <button  className="btn glass" onClick={addCard}>Karte hinzufügen</button>
-                   
-          </div></>
+        <input
+          type="text"
+          className="line-input"
+          value={antwort}
+          onChange={(e) => setAntwort(e.target.value)}
+        />
+        <label>Definition</label>
+        <br></br>
+        <button className="btn glass" onClick={addCard}>
+          Karte hinzufügen
+        </button>
+      </div>
+    </>
   );
 }
 
