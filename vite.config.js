@@ -9,6 +9,10 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+  globPatterns: ['**/*.{js,css,html,ico,png,jpg,jpeg,svg,webp}'],
+  maximumFileSizeToCacheInBytes: 5 * 1024 * 1024
+},
       manifest: {
         name: 'Lernsets App',
         short_name: 'Lernsets',
