@@ -92,7 +92,7 @@
 }
 .add-card-btn {
   width: 100%;
-  height: clamp(100px, 30vh, 200px);
+  
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);

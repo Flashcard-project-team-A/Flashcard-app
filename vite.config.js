@@ -5,18 +5,31 @@ import {VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',
-  plugins: [react(), VitePWA({
-    registerType: 'autoUpdate',
-
-    manifest: {
-      name: 'Flashcard App',
-      short_name: 'Flashcards',
-      description: 'Eine App zum Lernen mit Karteikarten',
-      theme_color: '#134ff4',
-      background_color: '#000000',
-display: 'standalone',
-  
-    }
-  })],
-})  
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'Lernsets App',
+        short_name: 'Lernsets',
+        description: 'Meine Lernkarten App',
+        theme_color: '#000000',
+        background_color: '#000000',
+        display: 'standalone',
+        start_url: '/',
+        icons: [
+          {
+            src: 'logo.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'logo.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      }
+    })
+  ]
+})
