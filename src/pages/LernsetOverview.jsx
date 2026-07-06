@@ -54,6 +54,16 @@ export default function LernsetOverview() {
 
   //bearbeitungsmodus
   function toggleEditMode() {
+    if (isEditing) {
+    const isLeereKarte = currentSet.karten.some(
+      (karte) => karte.frage.trim() === "" || karte.antwort.trim() === ""
+    );
+
+    if (isLeereKarte) {
+      alert("Bitte fülle alle Karten aus, bevor du den Bearbeitungsmodus verlässt!");
+      return; // Modus NICHT verlassen
+    }
+  }
     setIsEditing((prev) => !prev);
     setActivEditingCard(null);
   }
@@ -104,6 +114,13 @@ export default function LernsetOverview() {
       {" "}
       {/*//für css style später*/}
       {/*wieder beide Steuerungsbuttons oben rechts*/}
+
+      <button
+      className="back-button glass glass_button"
+      onClick={() => navigate("/")}
+    >
+      X
+    </button>
       <div className="top-buttons">
         <button
           className="edit-button glass glass_button"
@@ -117,6 +134,8 @@ export default function LernsetOverview() {
         >
           🗑️ Set löschen
         </button>
+
+        
       </div>
       {/*Lernsets Titel <h1 className="overview-title">{currentSet.name}</h1>*/}
       {/* Wenn bearbeitungsmodus-> Zeig input-Feld, sonst normale h1 Titel*/}
@@ -221,8 +240,8 @@ export default function LernsetOverview() {
               </div>
             );
           })}
-      </div>
-      {isEditing && (
+
+          {isEditing && (
         <div className="add-card-btn-wrapper">
           <button
             className="add-card-btn glass glass_button"
@@ -232,6 +251,8 @@ export default function LernsetOverview() {
           </button>
         </div>
       )}
+      </div>
+      
       {/*popup fürs Löschen des gesamten Sets*/}
       {LoeschPopup && (
         <div className="popup-background">
